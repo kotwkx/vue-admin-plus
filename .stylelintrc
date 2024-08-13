@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "stylelint-config-standard", // 使用 Stylelint 标准配置
+    "stylelint-config-prettier"  // 禁用与 Prettier 冲突的规则
+  ],
+  "plugins": [
+    "stylelint-scss" // 如果你使用 SCSS，则需要这个插件
+  ],
+  "rules": {
+    // 你可以在这里添加或修改规则
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["extend", "at-root", "content", "include", "mixin", "if", "else", "for", "each", "while", "function", "return"]
+    }],
+    "block-no-empty": true, // 禁止空的代码块
+    "color-no-invalid-hex": true, // 禁止无效的十六进制颜色
+    "declaration-block-no-duplicate-properties": true, // 禁止重复的属性声明
+    "max-nesting-depth": 3, // 限制选择器的嵌套深度
+    "selector-max-id": 0, // 禁止使用 ID 选择器
+    "selector-max-class": 3 // 限制类选择器的使用数量
+  }
+}
