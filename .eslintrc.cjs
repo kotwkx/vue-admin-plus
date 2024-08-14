@@ -1,4 +1,7 @@
 module.exports = {
+  env: {
+    node: true,
+  },
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
@@ -19,8 +22,15 @@ module.exports = {
     '@typescript-eslint', // TypeScript 插件
     'import', // Import 插件，用于规范模块导入
     'eslint-comments', // ESLint 注释插件
+    'prettier', // Prettier 插件
   ],
   rules: {
+    // ESLint 推荐规则和 TypeScript 推荐规则
+    ...require('@typescript-eslint/eslint-plugin').configs.recommended.rules,
+    ...require('eslint-plugin-prettier').configs.recommended.rules,
+    ...require('eslint-plugin-vue').configs['vue3-recommended'].rules,
+    ...require('eslint-plugin-import').configs.recommended.rules,
+
     // 严格的变量使用规则，确保没有未使用的变量
     '@typescript-eslint/no-unused-vars': ['error'],
 
@@ -85,4 +95,5 @@ module.exports = {
       },
     },
   ],
-}
+  settings: {},
+};
